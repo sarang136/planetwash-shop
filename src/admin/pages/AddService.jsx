@@ -5,6 +5,7 @@ import {
   useDeleteServicesByIdMutation,
   useAddServiceMutation,
   useAddProductMutation,
+  useGetProductByServiceQuery,
 } from "../redux/appSlice";
 import { MdDelete } from "react-icons/md";
 import { FaCamera } from "react-icons/fa";
@@ -134,6 +135,8 @@ const AddService = () => {
     }
   };
 
+  console.log(allServices)
+
   return (
     <div className="px-4 w-[100vw] md:w-[unset]">
 
@@ -188,7 +191,7 @@ const AddService = () => {
         <div className="mt-5 md:mt-10 p-2">
           <p className="font-bold md:text-xl mb-4">
             Product:{" "}
-            <span className="text-gray-400 font-medium italic">{selectedService.name}</span>
+            <span className="text-gray-400 font-medium italic">{selectedService?.name}</span>
           </p>
           <ServicesData serviceId={selectedServiceId} />
         </div>
@@ -425,3 +428,4 @@ const AddService = () => {
 };
 
 export default AddService;
+
