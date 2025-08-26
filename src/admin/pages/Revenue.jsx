@@ -10,7 +10,7 @@ const Revenue = () => {
   const { data = [], isLoading, error } = useGetUserOrdersQuery(user?._id);
   console.log("alldasta", data);
 
- 
+
   const totalRevenue = data?.reduce((sum, item) => sum + (item.totalAmount || 0), 0);
 
   if (isLoading) {
@@ -31,7 +31,9 @@ const Revenue = () => {
               animateToNumber={totalRevenue || 0}
               locale="en-IN"
               includeComma
-              configs={() => ({ mass: 1, tension: 220, friction: 30 })}
+              configs={[
+                { mass: 1, tension: 220, friction: 30 },
+              ]}
             />
             /-
           </div>
@@ -61,10 +63,10 @@ const Revenue = () => {
                 <td className='p-4 whitespace-nowrap text-green-500'>+{res?.totalAmount}/-</td>
                 <td
                   className={`p-4 whitespace-nowrap font-medium ${res?.orderStatus === "completed"
-                      ? "text-green-500"
-                      : res?.orderStatus === "failed"
-                        ? "text-red-500"
-                        : "text-blue-500"
+                    ? "text-green-500"
+                    : res?.orderStatus === "failed"
+                      ? "text-red-500"
+                      : "text-blue-500"
                     }`}
                 >
                   {res?.orderStatus || "N/A"}
