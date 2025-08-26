@@ -27,14 +27,7 @@ const Revenue = () => {
           <h2 className='text-xl sm:text-2xl font-bold'>Total Revenue</h2>
           <div className='text-xl sm:text-2xl text-blue-600 flex items-center gap-1'>
             Rs.
-            <AnimatedNumber
-              animateToNumber={totalRevenue || 0}
-              locale="en-IN"
-              includeComma
-              configs={[
-                { mass: 1, tension: 220, friction: 30 },
-              ]}
-            />
+           {totalRevenue}
             /-
           </div>
         </div>
